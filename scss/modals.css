@@ -1,0 +1,131 @@
+/*Modals*/
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 768px) {
+  .popup-img {
+    display: none;
+  }
+}
+
+.popup-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.popup-content {
+  position: fixed;
+  width: 550px;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .popup-content {
+    width: 400px;
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width: 511px) {
+  .popup-content {
+    width: 300px;
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: -1.5rem;
+  right: -3.5rem;
+  font-size: 4rem;
+  color: white;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 511px) {
+  .popup-close {
+    top: -2rem;
+    right: 0;
+    color: black;
+  }
+}
+
+.popup-desc {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.popup-desc h2 {
+  width: 450px;
+  margin: 0 auto;
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 768px) {
+  .popup-desc h2 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 511px) {
+  .popup-desc h2 {
+    font-size: 24px;
+  }
+}
+
+.popup-desc p {
+  font-weight: 300;
+  font-family: 'Roboto';
+}
+
+.popup-download-submit {
+  display: block;
+  width: 100%;
+  height: 54px;
+  margin-top: 25px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  border-radius: 1px;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  font-family: Roboto;
+  font-weight: 300;
+  cursor: pointer;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.popup-download-submit:hover {
+  background-color: #79493b;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+/*# sourceMappingURL=modals.css.map */

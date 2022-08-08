@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <link rel="icon" type="image/png" sizes="16x16" href="/plugins/images/favicon.png">
     <link href="/css/style.min.css" rel="stylesheet">
-    <link href="/css/modals.css" rel="stylesheet">
+    <link href="/css/req.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,29 +27,32 @@
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md my-navbar">
+                <a class="navbar-brand ms-3" href="#">
+                    <b class="logo-icon">
+                        <img src="/img/logo.png" alt="homepage" />
+                    </b>
+                </a>
+                <div class="my-navbar navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
                             <a class="nav-toggler nav-link waves-effect waves-light text-white"
                                 href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ms-auto d-flex align-items-center">
-                        <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
-                                <input type="text" placeholder="Search..." class="form-control mt-0">
-                                <a href="" class="active">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li>
-                        <li>
-                            <a class="profile-pic" href="#">
-                                <img src="/plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
-                        </li>
-                    </ul>
+                    <div class="navbar-nav ms-auto d-flex align-items-center">
+                        <span class="user-img">
+                            <img src="/img/user.svg" width="30" height="30" alt="user">
+                        </span>
+                        <div class="dropdown logout">
+                            <a class="work-request-btn logout-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                User name
+                            </a>
+                            <ul class="dropdown-menu mt-2">
+                                <li><a class="dropdown-item" href="#">Выйти</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -58,17 +61,19 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-moderator.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-dashboard.html"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Заявки</span>
+                                <span class="hide-menu">Главная</span>
+                                <!-- Дашборд -->
                             </a>
                         </li>
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-work-moderator.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-moderator.html"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">В работе</span>
+                                <span class="hide-menu">Все заявки</span>
+                                <!-- Все заявки -->
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -87,134 +92,129 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Все заявки</h3>
-                            <div class="table-responsive">
-                                <table class="table text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th class="border-top-0">№ Заявки</th>
-                                            <th class="border-top-0">Дата</th>
-                                            <th class="border-top-0">№ Декларации</th>
-                                            <th class="border-top-0">Статус</th>
-                                            <th class="border-top-0">Документ</th>
-                                            <th class="border-top-0">Таможенный пост</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
-                                            <td>13555</td>
-                                            <td>Оплачено</td>
-                                            <td>PDF</td>
-                                            <td>Хоргос</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
-                                            <td>13555</td>
-                                            <td>Оплачено</td>
-                                            <td>PDF</td>
-                                            <td>Хоргос</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
-                                            <td>13555</td>
-                                            <td>Оплачено</td>
-                                            <td>PDF</td>
-                                            <td>Хоргос</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
-                                            <td>13555</td>
-                                            <td>Оплачено</td>
-                                            <td>PDF</td>
-                                            <td>Хоргос</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
-                                            <td>13555</td>
-                                            <td>Оплачено</td>
-                                            <td>PDF</td>
-                                            <td>Хоргос</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
-                                            <td>13555</td>
-                                            <td>Оплачено</td>
-                                            <td>PDF</td>
-                                            <td>Хоргос</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="mt-4">
-                                    <a href="#" class="btn btn-danger text-white fs-7 popup-request-btn">Создать заявку</a>
+                            <h3 class="box-title mb-3">Работа с заявкой</h3>
+                            <div class="work-request mb-3">
+                                <div class="work-request-item d-flex gap-2 align-items-baseline mb-1">
+                                    <h5>Номер заявки:</h5>
+                                    <p> №5464 </p>
+                                </div>
+                                <div class="work-request-item d-flex gap-2 align-items-baseline mb-1">
+                                    <h5>Фио:</h5>
+                                    <p> Иван Иванович </p>
+                                </div>
+                                <div class="work-request-item d-flex gap-2 align-items-baseline mb-1">
+                                    <h5>Тел:</h5>
+                                    <p> +7 777 777 77 77 </p>
+                                </div>
+                                <div class="work-request-item d-flex gap-2 align-items-baseline mb-1">
+                                    <h5>Email:</h5>
+                                    <p> Ivan@mail.ru </p>
+                                </div>
+                                <div class="work-request-item d-flex gap-2 align-items-baseline mb-1">
+                                    <h5>Пункт отправления:</h5>
+                                    <p> Беларусь </p>
+                                </div>
+                                <div class="work-request-item d-flex gap-2 align-items-baseline mb-1">
+                                    <h5>Пункт получения:</h5>
+                                    <p> Беларусь </p>
+                                </div>
+                                <div class="work-request-item d-flex gap-2 align-items-baseline mb-1">
+                                    <h5>Отправитель:</h5>
+                                    <p> ТОО Мотор </p>
                                 </div>
                             </div>
+                            <div class="work-request">
+                                <div class="work-request-item d-flex align-items-baseline gap-3">
+                                    <h3>Документы</h3>
+                                    <button type="button" class="work-request-btn">Скачать</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Паспорт</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Доверенность</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Сертификат</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Транспортное средство</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Дополнительно</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                            </div>
+                            <div class="work-request d-flex gap-3">
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle work-request-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Присвоить статус
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <form action="#" class="statuses">
+                                            <label class="form-check-label dropdown-item">
+                                                <input class="form-check-input" type="radio" value="confirm" name="flexRadioDefault">
+                                                Подтвердить
+                                            </label>
+                                            <label class="form-check-label dropdown-item">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                                Завершить
+                                            </label>
+                                            <label class="form-check-label dropdown-item">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                                Отправить на доработку
+                                            </label>
+                                        </form>
+                                        <!-- СОСТОЯНИЕ СТАТУС ПОДТВЕРДИТЬ -->
+                                        <form action="#" class="status-confirm">
+                                            <label class="form-check-label dropdown-item status-grid d-grid align-items-baseline gap-2">
+                                                Сумма к оплате
+                                                <input class="my-input" type="text" name="flexRadioDefault" placeholder="введите сумму">
+                                            </label>
+                                            <label class="form-check-label dropdown-item status-grid d-grid align-items-baseline gap-2">
+                                                0,2%
+                                                <input class="my-input" type="text" name="flexRadioDefault" placeholder="введите сумму">
+                                            </label>
+                                            <div class="status-btn-wrapper d-flex gap-2">
+                                                <button class="dropdown-item status-btn" type="submit">Сохранить</button>
+                                                <button onclick="" class="dropdown-item status-btn status-btn-back" type="button">Назад</button>
+                                            </div>
+                                        </form>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <script>
+                                const radioButtons = document.querySelectorAll('input[name="flexRadioDefault"]');
+                                const statuses = document.querySelector('.statuses');
+                                const statusConfirm = document.querySelector('.status-confirm');
+                                const statusBtnBack = document.querySelector('.status-btn-back');
+
+                                for(const radioButton of radioButtons){
+                                    radioButton.addEventListener('change', (e) => {
+                                        console.log(e);
+                                        if (radioButton.value === 'confirm'){
+                                            statuses.classList.add('d-none');
+                                            statusConfirm.classList.add('status-confirm-show');
+                                        }
+                                    });
+                                    
+                                }
+                                
+                                statusBtnBack.addEventListener('click', (e) => {
+                                    e.preventDefault()
+                                    alert('asd')
+                                    statuses.classList.remove('d-none');
+                                    statusConfirm.classList.remove('status-confirm-show');
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
-
-                <!-- MODALS -->
-                <section class="popup popup-request" data-modal>
-                    <div class="popup-content">
-                        <button type="button" class="popup-close"><strong>&times;</strong></button>
-                        <div class="popup-desc">
-                            <h2>Создание заявки</h2>
-                        </div>
-                        <form action="#" id="formRegistration" class="d-grid justify-content-center align-items-center">
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-text">ФИО</span>
-                                <input type="text" class="form-control req-input" style="width: 300px;" id="login" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-text">Номер телефона</span>
-                                <input type="tel" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-text">Email</span>
-                                <input type="email" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-text">Получатель</span>
-                                <input type="text" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-text">Страна отправителя</span>
-                                <input type="text" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-file">Паспорт</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-file">Доверенность</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-file">Сертификат</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-file">Транспортное средство</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-file">Дополнительно</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
-                            </label>
-                            
-                            <div class="pt-2 pb-2 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-danger text-white fs-7" style="width: 300px;">Сохранить</button>
-                            </div>
-                        </form>
-                    </div>
-                </section>
             </div>
         </div>
     </div>
@@ -225,7 +225,7 @@
     <script src="/js/waves.js"></script>
     <script src="/js/sidebarmenu.js"></script>
     <script src="/js/custom.js"></script>
-    <script src="/js/modals.js"></script>
+    
 </body>
 
 </html>

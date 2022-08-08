@@ -1,0 +1,168 @@
+{% extends 'layouts/print.html' %}
+{% load humanize %}
+{% load i18n %}
+{% language 'en' %}
+
+{% block content %}
+<style>
+  html {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+    margin: 40px 0;
+    text-align: left;
+  }
+
+  .container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  .h2 {
+    font-size: 20px;
+    text-align: right;
+    margin: 0 0 0 auto;
+    font-style: italic;
+  }
+
+  .h4 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 0 40px;
+  }
+
+  p {
+    margin: 0;
+    text-indent: 20px
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 40px 0;
+  }
+
+  td,
+  th {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 5px;
+  }
+
+  td:empty:after {
+    content: "\00a0";
+  }
+
+  .table-2 td {
+    text-align: left;
+  }
+
+  .h2,
+  .h4 {
+    font-size: 18px;
+  }
+
+  .underline {
+    max-width: 600px;
+    min-width: 350px;
+    margin: 0 0 0 5px;
+    border-bottom: 1px solid #000;
+    display: inline-flex;
+  }
+
+  @media print {
+    .h2 {
+      margin-top: 20px !important;
+    }
+
+    p {
+      font-size: 17px;
+    }
+  }
+</style>
+<div class="container">
+  <h2 class="h2" style="margin-top: 120px; font-size: 17px;">Директору ТОО «Микрофинансовая организация Quantum»
+    <br>г-ну Байбалиев Н.К.</h2>
+  <h4 class="h4" style="max-width: 600px; text-align: center; margin: 100px auto 60px;">ЗАЯВЛЕНИЕ НА
+    ПОЛУЧЕНИЕ МИКРОКРЕДИТА</h4>
+  <p><strong>ЗАЯВИТЕЛЬ:</strong></p>
+  <p style="margin-top: 20px; text-indent: 0">Наименование
+    <span>{{credit.business_info.name}}, {{ credit.borrower_data.full_name }}</span>
+  </p>
+  <p style="text-indent: 0">Дата рождения
+    <span>{{ credit.borrower.birthday }}</span>
+  </p>
+  <p style="text-indent: 0">Уд. личности №
+    <span>{{ credit.borrower_data.document_number }}</span>
+    выдан
+    <span>{{ credit.borrower_data.document_issue_org }}</span>
+    от
+    <span>{{ credit.borrower_data.document_given_date }}</span>
+  </p>
+  <p style="text-indent: 0">Место проживания
+    <span>{{ credit.borrower_data.reg_address }}</span>
+  </p>
+  <p style="text-indent: 0">Телефон
+    <span>{{ credit.lead.mobile_phone }}</span>
+  </p>
+  <p style="text-indent: 0">ИИН
+    <span>{{ credit.borrower.iin }}</span>
+  </p>
+  <p style="text-indent: 0">Банковский счет
+    <span>
+      <!--[автозаполняютсяизданныхмультигруппы«РеквизитысчетаИПзаёмщика»поле«Номерсчета»]--> Банк
+      <!--[автозаполняютсяизданныхмультигруппы«РеквизитысчетаИПзаёмщика»полеНаименованиебанка»]--></span>
+  </p>
+  <p style="margin-top: 20px;"><strong>Прошу Вас рассмотреть возможность получения мною МИКРОКРЕДИТА:</strong></p>
+  <p style="margin-top: 20px; text-indent: 0">Предполагаемая сумма микрокредита:
+    <span>{{ credit.requested_params.principal|floatformat:"2"|intcomma}}</span>
+  </p>
+  <p style="text-indent: 0">На срок:
+    <span>{{ credit.requested_params.period }} мес.</span>
+  </p>
+  <p style="text-indent: 0">Целевое назначение кредита:
+    <span>
+      {{ credit.product.financing_purpose }}
+    </span>
+  </p>
+  <p style="text-indent: 0">Валюта:
+    <span>«Тенге»</span>
+  </p>
+  <p style="margin-top: 20px;">
+    Заявитель подтверждает, что вся выше приведенная информация является подлинной, соответствует истинным фактам и
+    выражает согласие на проведение анализа его финансового состояния. Заявителю известно, что сокрытие или искажение
+    им вышеуказанной информации влечет отказ в кредитовании. МФО оставляет за собой право обращаться к любому лицу,
+    известному или неизвестному Заявителю, которое, как полагает МФО, может оказать содействие в принятии решения
+    относительно предоставления или не предоставления микрокредита Заявителю. Заявитель подтверждает, что его
+    финансовое положение позволяет обслуживать запрашиваемый микрокредит.
+  </p>
+
+  <p style="margin-top: 20px; text-indent: 0">
+    <strong>Дата</strong>
+    <span>{{ credit.created }}</span>
+  </p>
+  <p style="margin-top: 20px; text-indent: 0">
+    <strong>Ф.И.О. Заявителя</strong>
+    <span>____________________________________</span>
+  </p>
+  <p style="margin-top: 20px; text-indent: 0">
+    <strong>Подпись Заявителя</strong>
+    <span class="underline" style="min-width: 0;">
+      {{ credit.otp_signature|default_if_none:"                " }}
+    </span>
+  </p>
+</div>
+{% endblock %}
+{% endlanguage %}

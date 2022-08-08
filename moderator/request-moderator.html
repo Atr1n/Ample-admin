@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <link rel="icon" type="image/png" sizes="16x16" href="/plugins/images/favicon.png">
     <link href="/css/style.min.css" rel="stylesheet">
-    <link href="/css/modals.css" rel="stylesheet">
+    <link href="/css/req.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,8 +27,13 @@
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md my-navbar">
+                <a class="navbar-brand ms-3" href="#">
+                    <b class="logo-icon">
+                        <img src="/img/logo.png" alt="homepage" />
+                    </b>
+                </a>
+                <div class="my-navbar navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
                             <a class="nav-toggler nav-link waves-effect waves-light text-white"
@@ -44,11 +49,6 @@
                                 </a>
                             </form>
                         </li>
-                        <li>
-                            <a class="profile-pic" href="#">
-                                <img src="/plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
-                        </li>
                     </ul>
                 </div>
             </nav>
@@ -58,17 +58,19 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-moderator.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-dashboard.html"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Заявки</span>
+                                <span class="hide-menu">Главная</span>
+                                <!-- Дашборд -->
                             </a>
                         </li>
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-work-moderator.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/moderator/request-moderator.html"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">В работе</span>
+                                <span class="hide-menu">Все заявки</span>
+                                <!-- Все заявки -->
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -87,73 +89,72 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Все заявки</h3>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="box-title">Все заявки</h3>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">№ Заявки</th>
+                                            <th onclick="sortTable()" class="border-top-0">№ Заявки</th>
                                             <th class="border-top-0">Дата</th>
-                                            <th class="border-top-0">№ Декларации</th>
+                                            <th class="border-top-0">Номер договора</th>
                                             <th class="border-top-0">Статус</th>
                                             <th class="border-top-0">Документ</th>
-                                            <th class="border-top-0">Таможенный пост</th>
+                                            <th class="border-top-0">Таможенный пункт</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
+                                            <td><a href="/moderator/request-work-moderator.html">1</a></td>
+                                            <td>12.12.2022</td>
                                             <td>13555</td>
-                                            <td>Оплачено</td>
+                                            <td>-</td>
                                             <td>PDF</td>
                                             <td>Хоргос</td>
                                         </tr>
                                         <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
+                                            <td><a href="/moderator/request-work-moderator.html">2</a></td>
+                                            <td>12.07.2021</td>
                                             <td>13555</td>
-                                            <td>Оплачено</td>
+                                            <td>На доработке</td>
                                             <td>PDF</td>
-                                            <td>Хоргос</td>
+                                            <td>Алаколь</td>
                                         </tr>
                                         <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
+                                            <td><a href="/moderator/request-work-moderator.html">3</a></td>
+                                            <td>12.08.2022</td>
                                             <td>13555</td>
-                                            <td>Оплачено</td>
+                                            <td>Ожидает оплаты</td>
                                             <td>PDF</td>
-                                            <td>Хоргос</td>
+                                            <td>Каракога</td>
                                         </tr>
                                         <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
+                                            <td><a href="/moderator/request-work-moderator.html">4</a></td>
+                                            <td>12.02.2022</td>
                                             <td>13555</td>
-                                            <td>Оплачено</td>
+                                            <td>-</td>
                                             <td>PDF</td>
-                                            <td>Хоргос</td>
+                                            <td>Сулу Агаш</td>
                                         </tr>
                                         <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
+                                            <td><a href="/moderator/request-work-moderator.html">5</a></td>
+                                            <td>10.10.2022</td>
                                             <td>13555</td>
-                                            <td>Оплачено</td>
+                                            <td>Завершенная</td>
                                             <td>PDF</td>
-                                            <td>Хоргос</td>
+                                            <td>Жана Жол</td>
                                         </tr>
                                         <tr>
-                                            <td>1325</td>
-                                            <td>12.12.2012</td>
+                                            <td><a href="/moderator/request-work-moderator.html">6</a></td>
+                                            <td>05.05.2022</td>
                                             <td>13555</td>
-                                            <td>Оплачено</td>
+                                            <td>Завершенная</td>
                                             <td>PDF</td>
-                                            <td>Хоргос</td>
+                                            <td>Караозек</td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="mt-4">
-                                    <a href="#" class="btn btn-danger text-white fs-7 popup-request-btn">Создать заявку</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -166,51 +167,65 @@
                         <div class="popup-desc">
                             <h2>Создание заявки</h2>
                         </div>
-                        <form action="#" id="formRegistration" class="d-grid justify-content-center align-items-center">
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                        <form action="#" id="formRegistration" class="formWithValidation d-grid justify-content-center align-items-center">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">ФИО</span>
-                                <input type="text" class="form-control req-input" style="width: 300px;" id="login" placeholder="Введите данные">
+                                <input type="text" class="field form-control my-input" style="width: 300px;" id="login" placeholder="Введите данные">
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">Номер телефона</span>
-                                <input type="tel" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                                <input type="tel" class="field phone form-control my-input" style="width: 300px;" placeholder="Введите данные">
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">Email</span>
-                                <input type="email" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                                <input type="email" class="field form-control my-input" style="width: 300px;" placeholder="Введите данные">
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">Получатель</span>
-                                <input type="text" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                                <input type="text" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">Страна отправителя</span>
-                                <input type="text" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                                <input type="text" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
                             </label>
-
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Паспорт</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                                <input type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Доверенность</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                                <input type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
+                                <span class="form-label-file">Технический паспорт транспорта</span>
+                                <input type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <span class="pdf-jpg">Только pdf - jpg</span>
+                            </label>
+                            <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Сертификат</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                                <input type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-file">Транспортное средство</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                            <label class="fs-4 d-grid my-grid align-items-center gap-2">
+                                <span class="form-label-file">Свидетельство ИП</span>
+                                <input type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <span class="pdf-jpg">Только CSV - XLS</span>
                             </label>
-                            <label class="form-label fs-4 d-flex align-items-center gap-2">
-                                <span class="form-label-file">Дополнительно</span>
-                                <input type="file" class="form-control req-input" style="width: 300px;" placeholder="Введите данные">
+                            <label class="fs-4 d-grid my-grid align-items-center gap-2">
+                                <span class="form-label-file">Инвойс (счет-фактура)</span>
+                                <input type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <span class="pdf-jpg">Только CSV - XLS</span>
+                            </label>
+                            <label class="fs-4 d-grid my-grid align-items-center gap-2">
+                                <span class="form-label-file">Инвойс (счет-фактура)</span>
+                                <input type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <span class="pdf-jpg">Только CSV - XLS</span>
                             </label>
                             
                             <div class="pt-2 pb-2 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-danger text-white fs-7" style="width: 300px;">Сохранить</button>
+                                <button type="submit" class="validateBtn my-btn">Сохранить</button>
                             </div>
                         </form>
                     </div>
@@ -218,6 +233,46 @@
             </div>
         </div>
     </div>
+
+
+<script>
+    var form = document.querySelector('.formWithValidation')
+    var validateBtn = form.querySelector('.validateBtn')
+    var fields = form.querySelectorAll('.field')
+
+    var generateError = function (text) {
+    var error = document.createElement('div')
+        error.className = 'error'
+        error.style.color = 'red'
+        error.innerHTML = text
+        return error
+    }
+
+    var removeValidation = function () {
+        var errors = form.querySelectorAll('.error')
+
+        for (var i = 0; i < errors.length; i++) {
+            errors[i].remove()
+        }
+    }
+
+    var checkFieldsPresence = function () {
+        for (var i = 0; i < fields.length; i++) {
+            if (!fields[i].value) {
+                var error = generateError('Введите данные')
+                form[i].parentElement.insertBefore(error, fields[i])
+            }
+        }
+    }
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
+
+  removeValidation()
+
+  checkFieldsPresence()
+})
+</script>
 
     <script src="/plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

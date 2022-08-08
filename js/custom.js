@@ -29,13 +29,14 @@ $(function() {
             $("#main-wrapper").attr("data-sidebartype", "full");
         }
     };
-    $(window).ready(setsidebartype);
-    $(window).on("resize", setsidebartype);
+    // $(window).ready(setsidebartype);
+    // $(window).on("resize", setsidebartype);
 
-    // let element = document.getElementById('login')
+    // let element = document.querySelector('phone')
 	// let maskOptions = {
 	// 	mask: '+{7}(000)000-00-00',
 	// }
 	// let mask = IMask(element, maskOptions)
-
+    
 });
+
