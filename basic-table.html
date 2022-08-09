@@ -230,6 +230,7 @@
                         </div>
                     </div>
                 </div>
+                
 
                 <!-- MODALS -->
                 <section class="popup popup-request" data-modal>
@@ -238,18 +239,18 @@
                         <div class="popup-desc">
                             <h2>Создание заявки</h2>
                         </div>
-                        <form action="#" id="formRegistration" class="formWithValidation d-grid justify-content-center align-items-center">
+                        <form action="#" id="formRegistration" class="form formWithValidation d-grid justify-content-center align-items-center">
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">ФИО</span>
-                                <input required type="text" class="field form-control my-input" style="width: 300px;" id="login" placeholder="Введите данные">
+                                <input data-validate-field="name" type="text" class="field form-control my-input" style="width: 300px;" id="login" placeholder="Введите данные">
                             </label>
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">Номер телефона</span>
-                                <input required type="tel" class="field phone form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input data-validate-field="tel" type="tel" class="field phone form-control my-input" style="width: 300px;" placeholder="Введите данные">
                             </label>
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">Email</span>
-                                <input required type="email" class="field form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input data-validate-field="email" type="email" class="field form-control my-input" style="width: 300px;" placeholder="Введите данные">
                             </label>
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-text">Получатель</span>
@@ -261,40 +262,39 @@
                             </label>
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Паспорт</span>
-                                <input required type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input onchange="ValidateSingleInput(this);" required type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
                                 <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Доверенность</span>
-                                <input required type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input onchange="ValidateSingleInput(this);" required type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
                                 <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Технический паспорт транспорта</span>
-                                <input required type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input onchange="ValidateSingleInput(this);" required type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
                                 <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
                             <label class="form-label fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Сертификат</span>
-                                <input type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input onchange="ValidateSingleInput(this);" type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
                                 <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
                             <label class="fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Свидетельство ИП</span>
-                                <input type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input onchange="ValidateSingleInput(this);" type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
                                 <span class="pdf-jpg">Только CSV - XLS</span>
                             </label>
                             <label class="fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Инвойс (счет-фактура)</span>
-                                <input required type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input onchange="ValidateSingleInput(this);" required type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
                                 <span class="pdf-jpg">Только pdf - jpg</span>
                             </label>
                             <label class="fs-4 d-grid my-grid align-items-center gap-2">
                                 <span class="form-label-file">Инвойс (счет-фактура)</span>
-                                <input type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                <input onchange="ValidateSingleInput(this);" type="file" class="custom-file-input form-control my-input" style="width: 300px;" placeholder="Введите данные">
                                 <span class="pdf-jpg">Только CSV - XLS</span>
                             </label>
-                            
                             <div class="pt-2 pb-2 d-flex justify-content-center">
                                 <button type="submit" class="validateBtn my-btn">Сохранить</button>
                             </div>
@@ -305,6 +305,40 @@
         </div>
     </div>
 
+    <script>
+        
+        let _validatePdfJpeg = [".png", ".csv"];    
+        let _validateCsvXls = [".xls", ".csv"];
+        let showValidate = document.querySelectorAll(".custom-file-input");  
+        function ValidateSingleInput(oInput) {
+            if (oInput.type == "file") {
+                let sFileName = oInput.value;
+                if (sFileName.length > 0) {
+                    let blnValid = false;
+                    for (let j = 0; j < _validatePdfJpeg.length; j++) {
+                        let sCurExtension = _validatePdfJpeg[j];
+                        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                            blnValid = true;
+                            break;
+                        }
+                    }
+                    if (!blnValid) {
+                        showValidate.forEach(function(item, i){
+                            console.log(item + ' ' + i);
+                        });
+                        return false;
+                    }
+                    // else {
+                    //     showValidate.forEach(function(item){
+                    //         item.innerHTML = "Только pdf - jpg";
+                    //     });
+                    //     return true;
+                    // }
+                }
+            }
+            return true;
+        }
+    </script>
 
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -317,6 +351,7 @@
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
     <script src="js/modals.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 
 </html>

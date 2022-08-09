@@ -1,3 +1,10 @@
+.textarea {
+    width: 300px;
+    min-height: 200px !important;
+    margin-top: 0.5rem;
+    resize: none;
+}
+
 .user-img {
     width: 40px;
     height: 40px;
@@ -72,6 +79,14 @@
     display: none;
 }
 
+.status-complete {
+    display: none;
+}
+
+.status-revision {
+    display: none;
+}
+
 .status-confirm-show {
     display: block;
 }
@@ -86,6 +101,7 @@
 }
 
 .status-btn {
+    margin-bottom: 0.5rem;
     padding: 0.5rem 0.7rem;
     background-color: #c71635;
     color: #fff;

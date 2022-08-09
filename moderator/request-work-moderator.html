@@ -145,6 +145,18 @@
                                     <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
                                 </div>
                                 <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Cвидетельство ИП</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Инвойс (счет-фактура)</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
+                                    <h5>Инвойс (счет-фактура)</h5>
+                                    <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
+                                </div>
+                                <div class="work-request-item my-grid d-grid align-items-baseline gap-3">
                                     <h5>Дополнительно</h5>
                                     <button type="button" style="width: 200px;" class="work-request-btn">Просмотреть</button>
                                 </div>
@@ -161,11 +173,11 @@
                                                 Подтвердить
                                             </label>
                                             <label class="form-check-label dropdown-item">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                                <input class="form-check-input" type="radio" value="complete" name="flexRadioDefault">
                                                 Завершить
                                             </label>
                                             <label class="form-check-label dropdown-item">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                                <input class="form-check-input" type="radio" value="revision" name="flexRadioDefault">
                                                 Отправить на доработку
                                             </label>
                                         </form>
@@ -181,7 +193,26 @@
                                             </label>
                                             <div class="status-btn-wrapper d-flex gap-2">
                                                 <button class="dropdown-item status-btn" type="submit">Сохранить</button>
-                                                <button onclick="" class="dropdown-item status-btn status-btn-back" type="button">Назад</button>
+                                            </div>
+                                        </form>
+                                        <!-- СОСТОЯНИЕ СТАТУС ЗАВЕРШИТЬ -->
+                                        <form onsubmit="return Validate(this);" action="#" class="status-complete">
+                                            <label class="form-check-label dropdown-item status-grid d-grid align-items-baseline gap-2">
+                                                <span class="form-label-file">Загрузите файл</span>
+                                                <input required type="file" class="form-control my-input" style="width: 300px;" placeholder="Введите данные">
+                                            </label>
+                                            <div class="status-btn-wrapper d-flex gap-2">
+                                                <button class="dropdown-item status-btn" type="submit">Сохранить</button>
+                                            </div>
+                                        </form>
+                                        <!-- СОСТОЯНИЕ СТАТУС ОТПРАВИТЬ НА ДОРАБОТКУ -->
+                                        <form action="#" class="status-revision">
+                                            <label class="dropdown-item">
+                                                <span class="form-label-file">Введите комментарий</span>
+                                                <textarea class="form-control textarea" rows="" cols="" placeholder="Оставьте комментарий"></textarea>
+                                            </label>
+                                            <div class="status-btn-wrapper d-flex gap-2">
+                                                <button class="dropdown-item status-btn" type="submit">Сохранить</button>
                                             </div>
                                         </form>
                                     </ul>
@@ -192,6 +223,8 @@
                                 const radioButtons = document.querySelectorAll('input[name="flexRadioDefault"]');
                                 const statuses = document.querySelector('.statuses');
                                 const statusConfirm = document.querySelector('.status-confirm');
+                                const statusComplete = document.querySelector('.status-complete');
+                                const statusRevision = document.querySelector('.status-revision');
                                 const statusBtnBack = document.querySelector('.status-btn-back');
 
                                 for(const radioButton of radioButtons){
@@ -201,16 +234,42 @@
                                             statuses.classList.add('d-none');
                                             statusConfirm.classList.add('status-confirm-show');
                                         }
+                                        if (radioButton.value === 'complete'){
+                                            statuses.classList.add('d-none');
+                                            statusComplete.classList.add('status-confirm-show');
+                                        }
+                                        if (radioButton.value === 'revision'){
+                                            statuses.classList.add('d-none');
+                                            statusRevision.classList.add('status-confirm-show');
+                                        }
                                     });
-                                    
                                 }
-                                
-                                statusBtnBack.addEventListener('click', (e) => {
-                                    e.preventDefault()
-                                    alert('asd')
-                                    statuses.classList.remove('d-none');
-                                    statusConfirm.classList.remove('status-confirm-show');
-                                });
+
+                                let _validFileExtensions = [".jpg", ".pdf"];
+                                function Validate(oForm) {
+                                    let arrInputs = oForm.getElementsByTagName("input");
+                                    for (let i = 0; i < arrInputs.length; i++) {
+                                        let oInput = arrInputs[i];
+                                        if (oInput.type == "file") {
+                                            let sFileName = oInput.value;
+                                            if (sFileName.length > 0) {
+                                                let blnValid = false;
+                                                for (let j = 0; j < _validFileExtensions.length; j++) {
+                                                    let sCurExtension = _validFileExtensions[j];
+                                                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                                        blnValid = true;
+                                                        break;
+                                                    }
+                                                }
+                                                if (!blnValid) {
+                                                    alert("Извините, " + sFileName + " Не прошел проверку, Загрузите доступный тип файла, например: " + _validFileExtensions.join(", "));
+                                                    return false;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    return true;
+                                }
                             </script>
                         </div>
                     </div>
